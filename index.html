@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- Số tăng dần -->
+    <div class="container py-5">
+      <div class="card">
+        <div class="card-header">Sắp xếp số thứ tự</div>
+        <div class="card-body">
+          <div class="card-content d-flex justify-content-between">
+            <div class="form-group px-3" style="width: 33.3333%">
+              <label>First</label>
+              <input
+                type="number"
+                class="form-control"
+                id="num1"
+                placeholder="Number 1"
+              />
+            </div>
+            <div class="form-group px-3" style="width: 33.3333%">
+              <label>Second</label>
+              <input
+                type="number"
+                class="form-control"
+                id="num2"
+                placeholder="Number 2"
+              />
+            </div>
+            <div class="form-group px-3" style="width: 33.3333%">
+              <label>Third</label>
+              <input
+                type="number"
+                class="form-control"
+                id="num3"
+                placeholder="Number 3"
+              />
+            </div>
+          </div>
+          <button id="btn-count" class="btn btn-danger mx-3">Click me!</button>
+        </div>
+        <div id="print-text" class="card-footer text-muted"></div>
+      </div>
+    </div>
+
+    <!-- Chào hỏi -->
+    <div class="container py-5">
+      <div class="card">
+        <div class="card-header">Hello</div>
+        <div class="card-body">
+          <div class="form-group">
+            <label>Hello, type your answer.</label>
+            <input
+              id="answer"
+              type="text"
+              class="form-control"
+              placeholder="Who Are You?"
+            />
+          </div>
+          <button id="btn-answer" class="btn btn-success">Submit</button>
+        </div>
+        <div class="card-footer text-muted"></div>
+      </div>
+    </div>
+
+    <!-- Tìm ngày tháng năm -->
+    <div class="container py-5">
+      <div class="card">
+        <div class="card-header">Day, Month, Year</div>
+        <div class="card-body">
+          <div class="card-day d-flex justify-content-between">
+            <div class="form-group px-3" style="width: 33.3333%">
+              <label>Day</label>
+              <input
+                id="day"
+                type="number"
+                min="1"
+                max="31"
+                class="form-control"
+                placeholder="Choose your day?"
+              />
+            </div>
+            <div class="form-group px-3" style="width: 33.3333%">
+              <label>Month</label>
+              <input
+                id="month"
+                type="number"
+                min="1"
+                max="12"
+                class="form-control"
+                placeholder="Choose your month? 1 to 12"
+              />
+            </div>
+            <div class="form-group px-3" style="width: 33.3333%">
+              <label>Year</label>
+              <input
+                id="year"
+                type="number"
+                class="form-control"
+                placeholder="Choose your year?"
+              />
+            </div>
+          </div>
+          <button id="click-day" class="btn btn-primary mx-3">
+            Yesterday - Tomorrow
+          </button>
+        </div>
+        <div id="print-day" class="card-footer text-muted"></div>
+      </div>
+    </div>
+
+    <!-- Month & Year -->
+    <div class="container py-5">
+      <div class="card">
+        <div class="card-header">Month & Year</div>
+        <div class="card-body">
+          <div class="card-content d-flex justify-content-between">
+            <div class="form-group px-3" style="width: 50%">
+              <label>Month</label>
+              <input
+                type="number"
+                class="form-control"
+                id="month-show"
+                min="1"
+                max="12"
+                placeholder="Number 1"
+              />
+            </div>
+            <div class="form-group px-3" style="width: 50%">
+              <label>Year</label>
+              <input
+                type="number"
+                class="form-control"
+                id="year-show"
+                placeholder="Year"
+              />
+            </div>
+          </div>
+          <button id="btn-month" class="btn btn-warning mx-3">Click me!</button>
+        </div>
+        <div id="print-month" class="card-footer text-muted"></div>
+      </div>
+    </div>
+
+    <!-- Even & Odd -->
+    <div class="container py-5">
+      <div class="card">
+        <div class="card-header">Even & Odd</div>
+        <div class="card-body">
+          <div class="card-content d-flex justify-content-between">
+            <div class="form-group px-3" style="width: 33.3333%">
+              <label>First</label>
+              <input
+                type="number"
+                class="form-control"
+                id="numb1"
+                placeholder="Number 1"
+              />
+            </div>
+            <div class="form-group px-3" style="width: 33.3333%">
+              <label>Second</label>
+              <input
+                type="number"
+                class="form-control"
+                id="numb2"
+                placeholder="Number 2"
+              />
+            </div>
+            <div class="form-group px-3" style="width: 33.3333%">
+              <label>Third</label>
+              <input
+                type="number"
+                class="form-control"
+                id="numb3"
+                placeholder="Number 3"
+              />
+            </div>
+          </div>
+          <button id="btn-number" class="btn btn-dark mx-3">Click me!</button>
+        </div>
+        <div id="print-number" class="card-footer text-muted"></div>
+      </div>
+    </div>
+
+    <!-- Triangle -->
+    <div class="container py-5">
+      <div class="card">
+        <div class="card-header">What's Triangle?</div>
+        <div class="card-body">
+          <div class="card-content d-flex justify-content-between">
+            <div class="form-group px-3" style="width: 33.3333%">
+              <label>Line A</label>
+              <input
+                type="number"
+                class="form-control"
+                id="line-a"
+                placeholder="Line A"
+              />
+            </div>
+            <div class="form-group px-3" style="width: 33.3333%">
+              <label>Line B</label>
+              <input
+                type="number"
+                class="form-control"
+                id="line-b"
+                placeholder="Line B"
+              />
+            </div>
+            <div class="form-group px-3" style="width: 33.3333%">
+              <label>Line C</label>
+              <input
+                type="number"
+                class="form-control"
+                id="line-c"
+                placeholder="Line C"
+              />
+            </div>
+          </div>
+          <button id="btn-triangle" class="btn btn-info mx-3">Click me!</button>
+        </div>
+        <div id="print-triangle" class="card-footer text-muted"></div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
