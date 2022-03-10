@@ -6,7 +6,7 @@
  * 2. Xử lý
  *    - So sánh từng số với nhau theo thứ tự lớn đến bé
  * 3. Đầu ra
- *    - Xuất ra màn hình số theo thứ tự tăng dần
+ *    - Render HTMl
  */
 
 document.getElementById('btn-count').onclick = function () {
@@ -65,7 +65,7 @@ document.getElementById('btn-count').onclick = function () {
  *    - Xử lý 4 trường hợp 'Father', 'Mother', 'Brother', 'Sister'
  *      + Nếu kết quả đúng thì hiện câu chào
  *      + Nếu kết quả sai ra sai dữ liệu nhập 
- *  3. Xuất kết quả ra hàm alert
+ *  3. Render HTML
  */
 
 // onclick button
@@ -105,14 +105,13 @@ document.getElementById('btn-answer').onclick = function () {
  *  1. Tạo 3 biến lưu ngày tháng và năm
  *  2. Xử lý
  *    - Đặt ra các trường hợp 
- *      + Giả sử các ngày trong tháng đều có 31 ngày 
  *      + 1 > tháng > 12 => Tháng không đúng
  *      + 1 > ngày > 31 => Ngày không đúng
  *    - Xử lý các trường hợp 
  *      + Nếu ngày trong tháng thì 'ngày -1 = ngày hôm qua & ngày +1 = ngày tiếp theo'
  *      + Nếu ngày cuối tháng thì 'gán 31 cho ngày hôm qua & +1 cho ngày tiếp theo'
  *      + Nếu ngày 31/12 thì '-1 cho ngày hôm qua và gán 1 cho ngày & tháng & +1 vào năm của ngày tiếp theo'
- *  3. Xuất kết quả ra màn hình 
+ *  3. Render HTML
  */
 
 document.getElementById('click-day').onclick = function () {
@@ -161,8 +160,61 @@ document.getElementById('click-day').onclick = function () {
         `
   }
 
+  // If first day of month
+  if (day === 1 && month <= 12 && month !== 1) {
+    dayBefore = 31;
+    document.getElementById('print-day').innerHTML =
+      `
+        <p>Yesterday - ${dayBefore}/${monthBefore - 1}/${year}</p>
+        <p>Day - ${day}/${month}/${year}</p>
+        <p>Tomorrow - ${dayAfter + 1}/${month}/${year}</p>
+      `
+  }
+
+  // If month have 30 day
+  if ((day === 1 && month === 5) || (day === 1 && month === 7) ||
+    (day === 1 && month === 10) || (day === 1 && month === 12)) {
+    dayBefore = 30;
+    document.getElementById('print-day').innerHTML =
+      `
+        <p>Yesterday - ${dayBefore}/${monthBefore - 1}/${year}</p>
+        <p>Day - ${day}/${month}/${year}</p>
+        <p>Tomorrow - ${dayAfter + 1}/${month}/${year}</p>
+      `
+  }
+
+  if ((day === 30 && month === 4) || (day === 30 && month === 6) ||
+    (day === 30 && month === 9) || (day === 30 && month === 11)) {
+    dayAfter = 1;
+    document.getElementById('print-day').innerHTML =
+      `
+        <p>Yesterday - ${dayBefore - 1}/${month}/${year}</p>
+        <p>Day - ${day}/${month}/${year}</p>
+        <p>Tomorrow - ${dayAfter}/${monthAfter + 1}/${year}</p>
+      `
+  }
+
+  if ((day > 30 && month === 4) || (day > 30 && month === 6) ||
+    (day > 30 && month === 9) || (day > 30 && month === 11)) {
+    document.getElementById('print-day').innerHTML =
+      `
+        <p>Invalid data</p>
+      `
+  }
+
+  // If 01/03/xxxx
+  if (day === 1 && month === 3) {
+    dayBefore = 28;
+    document.getElementById('print-day').innerHTML =
+      `
+        <p>Yesterday - ${dayBefore}/${monthBefore - 1}/${year}</p>
+        <p>Day - ${day}/${month}/${year}</p>
+        <p>Tomorrow - ${dayAfter + 1}/${month}/${year}</p>
+      `
+  }
+
   // If 28/02/xxxx
-  if (day === 28 || month === 2) {
+  if (day === 28 && month === 2) {
     dayAfter = 1;
     document.getElementById('print-day').innerHTML =
       `
@@ -174,13 +226,31 @@ document.getElementById('click-day').onclick = function () {
 
   // Leap Year
   if ((year % 4 === 0) && (year % 100 !== 0) || (year % 400 === 0)) {
-    if (day === 28 || month === 2) {
+    if (day === 28 && month === 2) {
       dayAfter = 29;
       document.getElementById('print-day').innerHTML =
         `
           <p>Yesterday - ${dayBefore - 1}/${month}/${year}</p>
           <p>Day - ${day}/${month}/${year}</p>
           <p>Tomorrow - ${dayAfter}/${month}/${year}</p>
+          `
+    }
+    if (day === 1 && month === 3) {
+      dayBefore = 29;
+      document.getElementById('print-day').innerHTML =
+        `
+          <p>Yesterday - ${dayBefore}/${monthBefore - 1}/${year}</p>
+          <p>Day - ${day}/${month}/${year}</p>
+          <p>Tomorrow - ${dayAfter + 1}/${month}/${year}</p>
+          `
+    }
+    if (day === 29 && month === 2) {
+      dayAfter = 1;
+      document.getElementById('print-day').innerHTML =
+        `
+          <p>Yesterday - ${dayBefore - 1}/${month}/${year}</p>
+          <p>Day - ${day}/${month}/${year}</p>
+          <p>Tomorrow - ${dayAfter}/${monthAfter + 1}/${year}</p>
           `
     }
   }
@@ -206,7 +276,7 @@ document.getElementById('click-day').onclick = function () {
  *  2. Xử lý
  *    - Đặt trường hợp 1 < tháng > 12 cho ra kết quả không hợp lệ
  *    - Switch case qua 12 trường hợp là 12 tháng
- *  3. Xuất dữ liệu ra màn hình
+ *  3. Render HTML
  */
 
 document.getElementById('btn-month').onclick = function () {
@@ -283,7 +353,7 @@ document.getElementById('btn-month').onclick = function () {
  *  2. 
  *    - So sánh các số chia phần dư cho 2 có = 0 hay không
  *    - Nếu = 0 là số chẵn, != 0 là số lẽ 
- *  3. In kết quả ra màn hình
+ *  3. Render HTML
  */
 
 document.getElementById('btn-number').onclick = function () {
@@ -319,7 +389,7 @@ document.getElementById('btn-number').onclick = function () {
  *    - TG Cân: So sánh 2 cạnh = nhau & lớn hơn cạnh còn lại
  *    - TG Đều: So sánh 3 cạnh bằng nhau
  *    - TG Vuông: So sánh 3 số theo thứ tự tăng dần
- *  3. Xuất kết quả ra màn hình
+ *  3. Render HTML
  */
 
 document.getElementById('btn-triangle').onclick = function () {
@@ -391,7 +461,21 @@ document.getElementById('btn-triangle').onclick = function () {
 
 // 7.
 /**
- * 
+ * 1. Người dùng nhập số ngẫu nhiên từ 1 tới 999
+ * 2. Xử lý
+ *    - Tạo biến lấy số hàng trăm, chục, đơn vị
+ *    - Tạo biến để gán giá trị
+ *    - Tạo các điều kiện
+ *      + Số >= 100 OR Số <= 999
+ *        ~ Switch case các trường hợp từ 1 tới 9
+ *          và gán giá trị vào biến renderHundred lấy chữ hàng trăm
+ *      + Số >= 10 OR Số <= 99
+ *        ~ Switch case các trường hợp từ 0 tới 9
+ *          và gán giá trị vào biến renderTen lấy chữ hàng chục
+ *      + Số <= 9
+ *        ~ Switch case các trường hợp từ 1 tới 9
+ *          và gán giá trị vào biến renderOne lấy chữ hàng đơn vị
+ *  3. Render HTML
  */
 
 document.getElementById('btn-read').onclick = function () {
@@ -534,4 +618,76 @@ document.getElementById('btn-read').onclick = function () {
     document.getElementById('print-read').innerHTML =
       `<p> ${renderOne} </p>`
   }
+}
+
+// 8. 
+/**
+ *  1. Tạo biến lưu thông tin học sinh + thông tin trường
+ *  2. Xử lý
+ *    - Tính công thức khoảng cách 2 điểm
+ *    - So sánh điều kiện giữa kết quả tính với trường
+ *  3. Render HTML
+ */
+
+document.getElementById('btn-univer').onclick = function () {
+  const nameStu1 = document.getElementById('name1').innerHTML;
+  const nameStu2 = document.getElementById('name2').innerHTML;
+  const nameStu3 = document.getElementById('name3').innerHTML;
+
+
+  const student1A = document.getElementById('student-1a').value * 1;
+  const student1B = document.getElementById('student-1b').value * 1;
+  const student1C = document.getElementById('student-1c').value * 1;
+
+  const student2A = document.getElementById('student-2a').value * 1;
+  const student2B = document.getElementById('student-2b').value * 1;
+  const student2C = document.getElementById('student-2c').value * 1;
+
+  const student3A = document.getElementById('student-3a').value * 1;
+  const student3B = document.getElementById('student-3b').value * 1;
+  const student3C = document.getElementById('student-3c').value * 1;
+
+  const univerA = document.getElementById('univer-a').value * 1;
+  const univerB = document.getElementById('univer-b').value * 1;
+  const univerC = document.getElementById('univer-c').value * 1;
+
+  const roadStu1 = Math.sqrt(
+    Math.pow((univerA - student1A), 2) +
+    Math.pow((univerB - student1B), 2) +
+    Math.pow((univerC - student1C), 2)
+  );
+
+  const roadStu2 = Math.sqrt(
+    Math.pow((univerA - student2A), 2) +
+    Math.pow((univerB - student2B), 2) +
+    Math.pow((univerC - student2C), 2)
+  );
+
+  const roadStu3 = Math.sqrt(
+    Math.pow((univerA - student3A), 2) +
+    Math.pow((univerB - student3B), 2) +
+    Math.pow((univerC - student3C), 2)
+  );
+
+  if (roadStu1 > roadStu2 && roadStu1 > roadStu3) {
+    document.getElementById('print-univer').innerHTML =
+      `
+    <p>${nameStu1} có khoảng cách xa trường nhất</p>
+    `
+  }
+
+  if (roadStu2 > roadStu1 && roadStu2 > roadStu3) {
+    document.getElementById('print-univer').innerHTML =
+      `
+    <p>${nameStu2} có khoảng cách xa trường nhất</p>
+    `
+  }
+
+  if (roadStu3 > roadStu1 && roadStu3 > roadStu2) {
+    document.getElementById('print-univer').innerHTML =
+      `
+    <p>${nameStu3} có khoảng cách xa trường nhất</p>
+    `
+  }
+
 }
