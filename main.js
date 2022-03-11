@@ -622,7 +622,7 @@ document.getElementById('btn-read').onclick = function () {
 
 // 8. 
 /**
- *  1. Tạo biến lưu thông tin học sinh + thông tin trường
+ *  1. Tạo biến lưu thông tin tọa độ học sinh + thông tin tạo độ trường
  *  2. Xử lý
  *    - Tính công thức khoảng cách 2 điểm
  *    - So sánh điều kiện giữa kết quả tính với trường
@@ -690,4 +690,44 @@ document.getElementById('btn-univer').onclick = function () {
     `
   }
 
+}
+
+// 9.
+/**
+ *  1. Tạo 3 biến lưu 3 số người dùng nhập vào
+ *  2. 
+ *    - Tạo 3 biến để lưu giá trị
+ *    - Kiểm tra xem có số nào < 0, gán lại giá trị số đó * - 1
+ *  3. Render HTML
+ */
+
+document.getElementById('btn-positive').onclick = function () {
+  const numberP1 = document.getElementById('positive-1').value * 1;
+  const numberP2 = document.getElementById('positive-2').value * 1;
+  const numberP3 = document.getElementById('positive-3').value * 1;
+
+  let positive1;
+  let positive2;
+  let positive3;
+
+  if (numberP1 < 0) {
+    positive1 = numberP1 * - 1;
+  } else {
+    positive1 = numberP1;
+  }
+
+  if (numberP2 < 0) {
+    positive2 = numberP2 * - 1;
+  } else {
+    positive2 = numberP2;
+  }
+
+  if (numberP3 < 0) {
+    positive3 = numberP3 * - 1;
+  } else {
+    positive3 = numberP3;
+  }
+
+  document.getElementById('print-positive').innerHTML = 
+  `Giá trị tuyệt đối là ${positive1} ${positive2} ${positive3}`;
 }
