@@ -408,7 +408,7 @@ document.getElementById('btn-triangle').onclick = function () {
       document.getElementById('print-triangle').innerHTML =
         `<p>Đây là tam giác cân có 2 cạnh bằng nhau và lớn hơn cạnh còn lại</p>`
     }
-  } else if (lineB === lineC && lineB === lineC) {
+  } else if (lineB === lineC && lineC === lineB) {
     if (lineB > lineA && lineC > lineA) {
       document.getElementById('print-triangle').innerHTML =
         `<p>Đây là tam giác cân có 2 cạnh bằng nhau và lớn hơn cạnh còn lại</p>`
