@@ -253,6 +253,14 @@ document.getElementById('click-day').onclick = function () {
           <p>Tomorrow - ${dayAfter}/${monthAfter + 1}/${year}</p>
           `
     }
+  } else {
+    dayAfter = 1;
+      document.getElementById('print-day').innerHTML =
+        `
+          <p>Yesterday - ${dayBefore - 1}/${month}/${year}</p>
+          <p>Day - ${day}/${month}/${year}</p>
+          <p>Tomorrow - ${dayAfter}/${monthAfter + 1}/${year}</p>
+          `
   }
 
   // If 31/12/xxxx
